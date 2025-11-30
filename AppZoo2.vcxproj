@@ -82,7 +82,8 @@
     <Link>
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
-      <EntryPointSymbol>main</EntryPointSymbol>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -120,24 +121,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="Actividades.cpp" />
+    <ClCompile Include="Aves.cpp" />
+    <ClCompile Include="boleto.cpp" />
+    <ClCompile Include="Horario.cpp" />
+    <ClCompile Include="Mamiferos.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="MenuAdmin1.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Reptiles.cpp" />
+    <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actividades.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Aves.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="boleto.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Horario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Login.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Mamiferos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="menu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="MenuAdmin1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="RegistroUsuario.h" />
+    <ClInclude Include="Reptiles.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UserManager.h" />
+    <ClInclude Include="Usuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
+    <EmbeddedResource Include="Actividades.resx">
+      <DependentUpon>Actividades.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aves.resx">
+      <DependentUpon>Aves.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="boleto.resx">
+      <DependentUpon>boleto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Horario.resx">
+      <DependentUpon>Horario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mamiferos.resx">
+      <DependentUpon>Mamiferos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu.resx">
+      <DependentUpon>menu.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdmin1.resx">
+      <DependentUpon>MenuAdmin1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reptiles.resx">
+      <DependentUpon>Reptiles.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario.resx">
+      <DependentUpon>Usuario.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
