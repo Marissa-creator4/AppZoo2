@@ -47,6 +47,7 @@ namespace AppZoo2 {
 	private: System::Windows::Forms::LinkLabel^ linkLabel1;
 
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 	private:
@@ -70,7 +71,9 @@ namespace AppZoo2 {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -163,6 +166,16 @@ namespace AppZoo2 {
 			this->panel1->Size = System::Drawing::Size(275, 223);
 			this->panel1->TabIndex = 8;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->Location = System::Drawing::Point(277, 76);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(252, 50);
+			this->pictureBox1->TabIndex = 9;
+			this->pictureBox1->TabStop = false;
+			// 
 			// Login
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -170,12 +183,15 @@ namespace AppZoo2 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(799, 528);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->panel1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Login";
-			this->Text = L"Login";
+			this->Text = L"Bioparque Taimaken";
+			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -214,5 +230,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 
+private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
