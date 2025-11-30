@@ -305,9 +305,9 @@ namespace AppZoo2 {
 			this->label9->ForeColor = System::Drawing::Color::DarkGreen;
 			this->label9->Location = System::Drawing::Point(277, 247);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(23, 16);
+			this->label9->Size = System::Drawing::Size(31, 16);
 			this->label9->TabIndex = 21;
-			this->label9->Text = L"$7";
+			this->label9->Text = L"$10";
 			// 
 			// label10
 			// 
@@ -321,7 +321,8 @@ namespace AppZoo2 {
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(23, 16);
 			this->label10->TabIndex = 22;
-			this->label10->Text = L"$4";
+			this->label10->Text = L"$3";
+			this->label10->Click += gcnew System::EventHandler(this, &boleto::label10_Click);
 			// 
 			// boleto
 			// 
@@ -424,5 +425,7 @@ namespace AppZoo2 {
 		}
 	}
 
-	};
+	private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
