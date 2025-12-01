@@ -1,5 +1,6 @@
 #pragma once
 #include "UserManager.h"
+#include "menu.h"
 
 namespace AppZoo2 {
 
@@ -69,6 +70,8 @@ namespace AppZoo2 {
 		System::Windows::Forms::Label^ label14;
 		System::Windows::Forms::Button^ button2;
 		System::Windows::Forms::Button^ button3;
+		System::Windows::Forms::Button^ btnBack;
+		System::Windows::Forms::Button^ btnExit;
 
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -112,6 +115,8 @@ namespace AppZoo2 {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->btnBack = (gcnew System::Windows::Forms::Button());
+			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -230,13 +235,13 @@ namespace AppZoo2 {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(220, 126);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 13;
-			this->button1->Text = L"Agregar";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Usuario::button1_Click);
-			// 
+		 this->button1->Name = L"button1";
+		 this->button1->Size = System::Drawing::Size(75, 23);
+		 this->button1->TabIndex = 13;
+		 this->button1->Text = L"Agregar";
+		 this->button1->UseVisualStyleBackColor = true;
+		 this->button1->Click += gcnew System::EventHandler(this, &Usuario::button1_Click);
+		 // 
 			// label8
 			// 
 			this->label8->AutoSize = true;
@@ -344,7 +349,7 @@ namespace AppZoo2 {
 		 // 
 			// label14
 			// 
-			this->label14->AutoSize = true;
+		 this->label14->AutoSize = true;
 		 this->label14->Location = System::Drawing::Point(16, 302);
 		 this->label14->Name = L"label14";
 		 this->label14->Size = System::Drawing::Size(61, 13);
@@ -373,11 +378,33 @@ namespace AppZoo2 {
 		 this->button3->UseVisualStyleBackColor = true;
 		 this->button3->Click += gcnew System::EventHandler(this, &Usuario::button3_Click);
 		 // 
+			// btnBack
+			// 
+			this->btnBack->Location = System::Drawing::Point(12, 12);
+			this->btnBack->Name = L"btnBack";
+		 this->btnBack->Size = System::Drawing::Size(75, 23);
+		 this->btnBack->TabIndex = 29;
+		 this->btnBack->Text = L"Volver";
+		 this->btnBack->UseVisualStyleBackColor = true;
+		 this->btnBack->Click += gcnew System::EventHandler(this, &Usuario::btnBack_Click);
+		 // 
+			// btnExit
+			// 
+			this->btnExit->Location = System::Drawing::Point(93, 12);
+		 this->btnExit->Name = L"btnExit";
+		 this->btnExit->Size = System::Drawing::Size(75, 23);
+		 this->btnExit->TabIndex = 30;
+		 this->btnExit->Text = L"Salir";
+		 this->btnExit->UseVisualStyleBackColor = true;
+		 this->btnExit->Click += gcnew System::EventHandler(this, &Usuario::btnExit_Click);
+		 // 
 			// Usuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+		 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		 this->ClientSize = System::Drawing::Size(504, 360);
+		 this->Controls->Add(this->btnExit);
+		 this->Controls->Add(this->btnBack);
 		 this->Controls->Add(this->button3);
 		 this->Controls->Add(this->button2);
 		 this->Controls->Add(this->label14);
@@ -571,5 +598,15 @@ namespace AppZoo2 {
 		}
 	}
 
+		// Navigates back to the menu form
+	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+		AppZoo2::menu^ m = gcnew AppZoo2::menu();
+		m->Show();
+		this->Close();
+	}
+		// Exits the application
+	private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
 	};
 }

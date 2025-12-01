@@ -1,4 +1,5 @@
 #pragma once
+#include "menu.h"
 
 namespace AppZoo2 {
 
@@ -19,14 +20,9 @@ namespace AppZoo2 {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Limpiar los recursos que se estén usando.
-		/// </summary>
 		~Horario()
 		{
 			if (components)
@@ -34,36 +30,49 @@ namespace AppZoo2 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ btnBack;
+	private: System::Windows::Forms::Button^ btnExit;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
 
-
-
-	protected:
-
 	private:
-		/// <summary>
-		/// Variable del diseñador necesaria.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Horario::typeid));
+			this->btnBack = (gcnew System::Windows::Forms::Button());
+			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
+			// 
+			// btnBack
+			// 
+			this->btnBack->Location = System::Drawing::Point(477, 338);
+			this->btnBack->Name = L"btnBack";
+			this->btnBack->Size = System::Drawing::Size(75, 23);
+			this->btnBack->TabIndex = 5;
+			this->btnBack->Text = L"Volver";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &Horario::btnBack_Click);
+			// 
+			// btnExit
+			// 
+			this->btnExit->Location = System::Drawing::Point(570, 338);
+			this->btnExit->Name = L"btnExit";
+			this->btnExit->Size = System::Drawing::Size(75, 23);
+			this->btnExit->TabIndex = 6;
+			this->btnExit->Text = L"Salir";
+			this->btnExit->UseVisualStyleBackColor = true;
+			this->btnExit->Click += gcnew System::EventHandler(this, &Horario::btnExit_Click);
 			// 
 			// label1
 			// 
@@ -136,6 +145,8 @@ namespace AppZoo2 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(683, 364);
+			this->Controls->Add(this->btnExit);
+			this->Controls->Add(this->btnBack);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -148,7 +159,14 @@ namespace AppZoo2 {
 			this->PerformLayout();
 
 		}
-
-	
-};
+#pragma endregion
+	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+		AppZoo2::menu^ m = gcnew AppZoo2::menu();
+		m->Show();
+		this->Close();
+	}
+	private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+	};
 }

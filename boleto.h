@@ -1,4 +1,5 @@
 #pragma once
+#include "menu.h"
 
 namespace AppZoo2 {
 
@@ -56,6 +57,8 @@ namespace AppZoo2 {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::TextBox^ textBoxConfirm; // new confirmation textbox
+	private: System::Windows::Forms::Button^ btnBack;
+	private: System::Windows::Forms::Button^ btnExit;
 	protected:
 
 	private:
@@ -86,6 +89,8 @@ namespace AppZoo2 {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->textBoxConfirm = (gcnew System::Windows::Forms::TextBox());
+			this->btnBack = (gcnew System::Windows::Forms::Button());
+			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -328,6 +333,26 @@ namespace AppZoo2 {
 			this->textBoxConfirm->TabIndex = 23;
 			this->textBoxConfirm->Visible = false;
 			// 
+			// btnBack
+			// 
+			this->btnBack->Location = System::Drawing::Point(12, 12);
+			this->btnBack->Name = L"btnBack";
+			this->btnBack->Size = System::Drawing::Size(75, 23);
+			this->btnBack->TabIndex = 24;
+			this->btnBack->Text = L"Volver";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &boleto::btnBack_Click);
+			// 
+			// btnExit
+			// 
+			this->btnExit->Location = System::Drawing::Point(93, 12);
+			this->btnExit->Name = L"btnExit";
+			this->btnExit->Size = System::Drawing::Size(75, 23);
+			this->btnExit->TabIndex = 25;
+			this->btnExit->Text = L"Salir";
+			this->btnExit->UseVisualStyleBackColor = true;
+			this->btnExit->Click += gcnew System::EventHandler(this, &boleto::btnExit_Click);
+			// 
 			// boleto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -335,6 +360,8 @@ namespace AppZoo2 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(490, 354);
+			this->Controls->Add(this->btnExit);
+			this->Controls->Add(this->btnBack);
 			this->Controls->Add(this->textBoxConfirm);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
@@ -344,7 +371,7 @@ namespace AppZoo2 {
 			this->Controls->Add(this->comboBoxNino);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
+		 this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -444,6 +471,14 @@ namespace AppZoo2 {
 		this->textBoxConfirm->Text = msg;
 		this->textBoxConfirm->Visible = true;
 		MessageBox::Show(msg, "Compra", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+		AppZoo2::menu^ m = gcnew AppZoo2::menu();
+		m->Show();
+		this->Close();
+	}
+	private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
 	}
 };
 }

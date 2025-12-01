@@ -1,4 +1,5 @@
 #pragma once
+#include "menu.h"
 
 namespace AppZoo2 {
 
@@ -34,6 +35,8 @@ namespace AppZoo2 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ btnBack;
+	private: System::Windows::Forms::Button^ btnExit;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
@@ -62,6 +65,8 @@ namespace AppZoo2 {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Aves::typeid));
+			this->btnBack = (gcnew System::Windows::Forms::Button());
+			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
@@ -79,6 +84,26 @@ namespace AppZoo2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// btnBack
+			// 
+			this->btnBack->Location = System::Drawing::Point(240, 473);
+			this->btnBack->Name = L"btnBack";
+			this->btnBack->Size = System::Drawing::Size(75, 23);
+			this->btnBack->TabIndex = 11;
+			this->btnBack->Text = L"Volver";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &Aves::btnBack_Click);
+			// 
+			// btnExit
+			// 
+			this->btnExit->Location = System::Drawing::Point(332, 473);
+			this->btnExit->Name = L"btnExit";
+			this->btnExit->Size = System::Drawing::Size(75, 23);
+			this->btnExit->TabIndex = 12;
+			this->btnExit->Text = L"Salir";
+			this->btnExit->UseVisualStyleBackColor = true;
+			this->btnExit->Click += gcnew System::EventHandler(this, &Aves::btnExit_Click);
 			// 
 			// pictureBox1
 			// 
@@ -130,7 +155,7 @@ namespace AppZoo2 {
 			this->label1->BackColor = System::Drawing::Color::OliveDrab;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Forte", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(129, 22);
+			this->label1->Location = System::Drawing::Point(129, 38);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(61, 16);
 			this->label1->TabIndex = 3;
@@ -177,7 +202,7 @@ namespace AppZoo2 {
 			this->label5->BackColor = System::Drawing::Color::OliveDrab;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Forte", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(435, 22);
+			this->label5->Location = System::Drawing::Point(435, 38);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(103, 16);
 			this->label5->TabIndex = 7;
@@ -237,6 +262,8 @@ namespace AppZoo2 {
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->btnExit);
+			this->Controls->Add(this->btnBack);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Aves";
 			this->Text = L"Aves";
@@ -249,5 +276,13 @@ namespace AppZoo2 {
 
 		}
 #pragma endregion
+	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+		AppZoo2::menu^ m = gcnew AppZoo2::menu();
+		m->Show();
+		this->Close();
+	}
+	private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
 	};
 }

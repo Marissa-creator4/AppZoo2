@@ -1,5 +1,6 @@
 #pragma once
 #include "Usuario.h"
+#include "menu.h"
 namespace AppZoo2 {
 
 	using namespace System;
@@ -36,6 +37,7 @@ namespace AppZoo2 {
 		}
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ administrarUsuariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 	protected:
 
 	private:
@@ -45,21 +47,18 @@ namespace AppZoo2 {
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuAdmin1::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->administrarUsuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->administrarUsuariosToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->administrarUsuariosToolStripMenuItem, this->salirToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(390, 24);
@@ -72,6 +71,13 @@ namespace AppZoo2 {
 			this->administrarUsuariosToolStripMenuItem->Size = System::Drawing::Size(128, 20);
 			this->administrarUsuariosToolStripMenuItem->Text = L"Administrar usuarios";
 			this->administrarUsuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MenuAdmin1::administrarUsuariosToolStripMenuItem_Click);
+			// 
+			// salirToolStripMenuItem
+			// 
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(41, 20);
+			this->salirToolStripMenuItem->Text = L"Salir";
+			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MenuAdmin1::salirToolStripMenuItem_Click);
 			// 
 			// MenuAdmin1
 			// 
@@ -93,6 +99,9 @@ namespace AppZoo2 {
 	private: System::Void administrarUsuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		AppZoo2::Usuario^ ver = gcnew AppZoo2::Usuario();
 		ver->Show();
+	}
+	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
 	}
 	};
 }

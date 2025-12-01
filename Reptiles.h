@@ -1,4 +1,5 @@
 #pragma once
+#include "menu.h"
 
 namespace AppZoo2 {
 
@@ -34,6 +35,8 @@ namespace AppZoo2 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ btnBack;
+	private: System::Windows::Forms::Button^ btnExit;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Label^ label1;
@@ -62,6 +65,8 @@ namespace AppZoo2 {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Reptiles::typeid));
+			this->btnBack = (gcnew System::Windows::Forms::Button());
+			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -79,6 +84,26 @@ namespace AppZoo2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// btnBack
+			// 
+			this->btnBack->Location = System::Drawing::Point(294, 504);
+			this->btnBack->Name = L"btnBack";
+			this->btnBack->Size = System::Drawing::Size(75, 23);
+			this->btnBack->TabIndex = 18;
+			this->btnBack->Text = L"Volver";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &Reptiles::btnBack_Click);
+			// 
+			// btnExit
+			// 
+			this->btnExit->Location = System::Drawing::Point(384, 504);
+			this->btnExit->Name = L"btnExit";
+			this->btnExit->Size = System::Drawing::Size(75, 23);
+			this->btnExit->TabIndex = 19;
+			this->btnExit->Text = L"Salir";
+			this->btnExit->UseVisualStyleBackColor = true;
+			this->btnExit->Click += gcnew System::EventHandler(this, &Reptiles::btnExit_Click);
 			// 
 			// label2
 			// 
@@ -119,7 +144,7 @@ namespace AppZoo2 {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->BackColor = System::Drawing::Color::LightGreen;
-			this->label3->Location = System::Drawing::Point(198, 326);
+			this->label3->Location = System::Drawing::Point(198, 309);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(149, 195);
 			this->label3->TabIndex = 9;
@@ -144,7 +169,7 @@ namespace AppZoo2 {
 			this->label4->BackColor = System::Drawing::Color::YellowGreen;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Forte", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(145, 293);
+			this->label4->Location = System::Drawing::Point(145, 281);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(118, 16);
 			this->label4->TabIndex = 11;
@@ -214,7 +239,7 @@ namespace AppZoo2 {
 			this->label8->BackColor = System::Drawing::Color::YellowGreen;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Forte", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(483, 293);
+			this->label8->Location = System::Drawing::Point(483, 281);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(87, 16);
 			this->label8->TabIndex = 17;
@@ -239,6 +264,8 @@ namespace AppZoo2 {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->label2);
+			this->Controls->Add(this->btnExit);
+			this->Controls->Add(this->btnBack);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Reptiles";
 			this->Text = L"Reptiles";
@@ -251,5 +278,13 @@ namespace AppZoo2 {
 
 		}
 #pragma endregion
+	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+		AppZoo2::menu^ m = gcnew AppZoo2::menu();
+		m->Show();
+		this->Close();
+	}
+	private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
 	};
 }
