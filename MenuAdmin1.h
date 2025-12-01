@@ -1,5 +1,4 @@
 #pragma once
-#include "Usuario.h"
 #include "menu.h"
 namespace AppZoo2 {
 
@@ -96,12 +95,7 @@ namespace AppZoo2 {
 
 		}
 #pragma endregion
-	private: System::Void administrarUsuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		AppZoo2::Usuario^ ver = gcnew AppZoo2::Usuario();
-		ver->Show();
-	}
-	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		Application::Exit();
-	}
+	private: System::Void administrarUsuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) { Application::Exit(); }
 	};
 }

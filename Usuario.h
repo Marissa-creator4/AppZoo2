@@ -1,7 +1,7 @@
 #pragma once
 #include "UserManager.h"
 #include "menu.h"
-
+#include "MenuAdmin1.h"
 namespace AppZoo2 {
 
 	using namespace System;
@@ -235,210 +235,209 @@ namespace AppZoo2 {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(220, 126);
-		 this->button1->Name = L"button1";
-		 this->button1->Size = System::Drawing::Size(75, 23);
-		 this->button1->TabIndex = 13;
-		 this->button1->Text = L"Agregar";
-		 this->button1->UseVisualStyleBackColor = true;
-		 this->button1->Click += gcnew System::EventHandler(this, &Usuario::button1_Click);
-		 // 
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 13;
+			this->button1->Text = L"Agregar";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Usuario::button1_Click);
+			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-		 this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-		 this->label8->Location = System::Drawing::Point(99, 165);
-		 this->label8->Name = L"label8";
-		 this->label8->Size = System::Drawing::Size(115, 20);
-		 this->label8->TabIndex = 14;
-		 this->label8->Text = L"Buscar usuario";
-		 // 
+			this->label8->Location = System::Drawing::Point(99, 165);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(115, 20);
+			this->label8->TabIndex = 14;
+			this->label8->Text = L"Buscar usuario";
+			// 
 			// comboBoxBuscarCedula
 			// 
-		 this->comboBoxBuscarCedula->Location = System::Drawing::Point(80, 198);
-		 this->comboBoxBuscarCedula->MaxLength = 10;
-		 this->comboBoxBuscarCedula->Name = L"comboBoxBuscarCedula";
-		 this->comboBoxBuscarCedula->Size = System::Drawing::Size(245, 21);
-		 this->comboBoxBuscarCedula->TabIndex = 15;
-		 this->comboBoxBuscarCedula->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDown;
-		 this->comboBoxBuscarCedula->TextChanged += gcnew System::EventHandler(this, &Usuario::comboBoxBuscarCedula_TextChanged);
-		 this->comboBoxBuscarCedula->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Usuario::comboBoxBuscarCedula_KeyPress);
-		 // 
+			this->comboBoxBuscarCedula->Location = System::Drawing::Point(80, 198);
+			this->comboBoxBuscarCedula->MaxLength = 10;
+			this->comboBoxBuscarCedula->Name = L"comboBoxBuscarCedula";
+			this->comboBoxBuscarCedula->Size = System::Drawing::Size(245, 21);
+			this->comboBoxBuscarCedula->TabIndex = 15;
+			this->comboBoxBuscarCedula->TextChanged += gcnew System::EventHandler(this, &Usuario::comboBoxBuscarCedula_TextChanged);
+			this->comboBoxBuscarCedula->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Usuario::comboBoxBuscarCedula_KeyPress);
+			// 
 			// textBox8
 			// 
 			this->textBox8->Location = System::Drawing::Point(80, 218);
-		 this->textBox8->Name = L"textBox8";
-		 this->textBox8->Size = System::Drawing::Size(245, 20);
-		 this->textBox8->TabIndex = 16;
-		 // 
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(245, 20);
+			this->textBox8->TabIndex = 16;
+			// 
 			// textBox9
 			// 
 			this->textBox9->Location = System::Drawing::Point(80, 295);
-		 this->textBox9->MaxLength = 8;
-		 this->textBox9->Name = L"textBox9";
-		 this->textBox9->Size = System::Drawing::Size(245, 20);
-		 this->textBox9->TabIndex = 17;
-		 // 
+			this->textBox9->MaxLength = 8;
+			this->textBox9->Name = L"textBox9";
+			this->textBox9->Size = System::Drawing::Size(245, 20);
+			this->textBox9->TabIndex = 17;
+			// 
 			// textBox10
 			// 
 			this->textBox10->Location = System::Drawing::Point(80, 277);
-		 this->textBox10->MaxLength = 3;
-		 this->textBox10->Name = L"textBox10";
-		 this->textBox10->Size = System::Drawing::Size(245, 20);
-		 this->textBox10->TabIndex = 18;
-		 this->textBox10->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Usuario::textBox10_KeyPress);
-		 // 
+			this->textBox10->MaxLength = 3;
+			this->textBox10->Name = L"textBox10";
+			this->textBox10->Size = System::Drawing::Size(245, 20);
+			this->textBox10->TabIndex = 18;
+			this->textBox10->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Usuario::textBox10_KeyPress);
+			// 
 			// textBox11
 			// 
 			this->textBox11->Location = System::Drawing::Point(80, 257);
-		 this->textBox11->Name = L"textBox11";
-		 this->textBox11->Size = System::Drawing::Size(245, 20);
-		 this->textBox11->TabIndex = 19;
-		 // 
+			this->textBox11->Name = L"textBox11";
+			this->textBox11->Size = System::Drawing::Size(245, 20);
+			this->textBox11->TabIndex = 19;
+			// 
 			// textBox12
 			// 
 			this->textBox12->Location = System::Drawing::Point(80, 237);
-		 this->textBox12->Name = L"textBox12";
-		 this->textBox12->Size = System::Drawing::Size(245, 20);
-		 this->textBox12->TabIndex = 20;
-		 // 
+			this->textBox12->Name = L"textBox12";
+			this->textBox12->Size = System::Drawing::Size(245, 20);
+			this->textBox12->TabIndex = 20;
+			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-		 this->label9->Location = System::Drawing::Point(35, 225);
-		 this->label9->Name = L"label9";
-		 this->label9->Size = System::Drawing::Size(44, 13);
-		 this->label9->TabIndex = 21;
-		 this->label9->Text = L"Nombre";
-		 // 
+			this->label9->Location = System::Drawing::Point(35, 225);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(44, 13);
+			this->label9->TabIndex = 21;
+			this->label9->Text = L"Nombre";
+			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-		 this->label10->Location = System::Drawing::Point(41, 264);
-		 this->label10->Name = L"label10";
-		 this->label10->Size = System::Drawing::Size(38, 13);
-		 this->label10->TabIndex = 22;
-		 this->label10->Text = L"Correo";
-		 // 
+			this->label10->Location = System::Drawing::Point(41, 264);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(38, 13);
+			this->label10->TabIndex = 22;
+			this->label10->Text = L"Correo";
+			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-		 this->label11->Location = System::Drawing::Point(37, 244);
-		 this->label11->Name = L"label11";
-		 this->label11->Size = System::Drawing::Size(43, 13);
-		 this->label11->TabIndex = 23;
-		 this->label11->Text = L"Usuario";
-		 // 
+			this->label11->Location = System::Drawing::Point(37, 244);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(43, 13);
+			this->label11->TabIndex = 23;
+			this->label11->Text = L"Usuario";
+			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-		 this->label12->Location = System::Drawing::Point(46, 284);
-		 this->label12->Name = L"label12";
-		 this->label12->Size = System::Drawing::Size(32, 13);
-		 this->label12->TabIndex = 24;
-		 this->label12->Text = L"Edad";
-		 // 
+			this->label12->Location = System::Drawing::Point(46, 284);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(32, 13);
+			this->label12->TabIndex = 24;
+			this->label12->Text = L"Edad";
+			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-		 this->label13->Location = System::Drawing::Point(36, 201);
-		 this->label13->Name = L"label13";
-		 this->label13->Size = System::Drawing::Size(40, 13);
-		 this->label13->TabIndex = 25;
-		 this->label13->Text = L"Cédula";
-		 // 
+			this->label13->Location = System::Drawing::Point(36, 201);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(40, 13);
+			this->label13->TabIndex = 25;
+			this->label13->Text = L"Cédula";
+			// 
 			// label14
 			// 
-		 this->label14->AutoSize = true;
-		 this->label14->Location = System::Drawing::Point(16, 302);
-		 this->label14->Name = L"label14";
-		 this->label14->Size = System::Drawing::Size(61, 13);
-		 this->label14->TabIndex = 26;
-		 this->label14->Text = L"Contraseña";
-		 // 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(16, 302);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(61, 13);
+			this->label14->TabIndex = 26;
+			this->label14->Text = L"Contraseña";
+			// 
 			// button2
 			// 
 			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
-		 this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-		 this->button2->Location = System::Drawing::Point(380, 218);
-		 this->button2->Name = L"button2";
-		 this->button2->Size = System::Drawing::Size(40, 35);
-		 this->button2->TabIndex = 27;
-		 this->button2->UseVisualStyleBackColor = true;
-		 this->button2->Click += gcnew System::EventHandler(this, &Usuario::button2_Click);
-		 // 
+			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button2->Location = System::Drawing::Point(380, 218);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(40, 35);
+			this->button2->TabIndex = 27;
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Usuario::button2_Click);
+			// 
 			// button3
 			// 
 			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
-		 this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-		 this->button3->Location = System::Drawing::Point(380, 268);
-		 this->button3->Name = L"button3";
-		 this->button3->Size = System::Drawing::Size(40, 38);
-		 this->button3->TabIndex = 28;
-		 this->button3->UseVisualStyleBackColor = true;
-		 this->button3->Click += gcnew System::EventHandler(this, &Usuario::button3_Click);
-		 // 
+			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button3->Location = System::Drawing::Point(380, 268);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(40, 38);
+			this->button3->TabIndex = 28;
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Usuario::button3_Click);
+			// 
 			// btnBack
 			// 
-			this->btnBack->Location = System::Drawing::Point(12, 12);
+			this->btnBack->Location = System::Drawing::Point(166, 321);
 			this->btnBack->Name = L"btnBack";
-		 this->btnBack->Size = System::Drawing::Size(75, 23);
-		 this->btnBack->TabIndex = 29;
-		 this->btnBack->Text = L"Volver";
-		 this->btnBack->UseVisualStyleBackColor = true;
-		 this->btnBack->Click += gcnew System::EventHandler(this, &Usuario::btnBack_Click);
-		 // 
+			this->btnBack->Size = System::Drawing::Size(75, 23);
+			this->btnBack->TabIndex = 29;
+			this->btnBack->Text = L"Volver";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &Usuario::btnBack_Click);
+			// 
 			// btnExit
 			// 
-			this->btnExit->Location = System::Drawing::Point(93, 12);
-		 this->btnExit->Name = L"btnExit";
-		 this->btnExit->Size = System::Drawing::Size(75, 23);
-		 this->btnExit->TabIndex = 30;
-		 this->btnExit->Text = L"Salir";
-		 this->btnExit->UseVisualStyleBackColor = true;
-		 this->btnExit->Click += gcnew System::EventHandler(this, &Usuario::btnExit_Click);
-		 // 
+			this->btnExit->Location = System::Drawing::Point(265, 322);
+			this->btnExit->Name = L"btnExit";
+			this->btnExit->Size = System::Drawing::Size(75, 23);
+			this->btnExit->TabIndex = 30;
+			this->btnExit->Text = L"Salir";
+			this->btnExit->UseVisualStyleBackColor = true;
+			this->btnExit->Click += gcnew System::EventHandler(this, &Usuario::btnExit_Click);
+			// 
 			// Usuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-		 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		 this->ClientSize = System::Drawing::Size(504, 360);
-		 this->Controls->Add(this->btnExit);
-		 this->Controls->Add(this->btnBack);
-		 this->Controls->Add(this->button3);
-		 this->Controls->Add(this->button2);
-		 this->Controls->Add(this->label14);
-		 this->Controls->Add(this->label13);
-		 this->Controls->Add(this->label12);
-		 this->Controls->Add(this->label11);
-		 this->Controls->Add(this->label10);
-		 this->Controls->Add(this->label9);
-		 this->Controls->Add(this->textBox12);
-		 this->Controls->Add(this->textBox11);
-		 this->Controls->Add(this->textBox10);
-		 this->Controls->Add(this->textBox9);
-		 this->Controls->Add(this->textBox8);
-		 this->Controls->Add(this->comboBoxBuscarCedula);
-		 this->Controls->Add(this->label8);
-		 this->Controls->Add(this->button1);
-		 this->Controls->Add(this->textBox6);
-		 this->Controls->Add(this->textBox5);
-		 this->Controls->Add(this->textBox4);
-		 this->Controls->Add(this->textBox3);
-		 this->Controls->Add(this->textBox2);
-		 this->Controls->Add(this->textBox1);
-		 this->Controls->Add(this->label7);
-		 this->Controls->Add(this->label6);
-		 this->Controls->Add(this->label5);
-		 this->Controls->Add(this->label4);
-		 this->Controls->Add(this->label3);
-		 this->Controls->Add(this->label2);
-		 this->Controls->Add(this->label1);
-		 this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-		 this->Name = L"Usuario";
-		 this->Text = L"Usuario";
-		 this->ResumeLayout(false);
-		 this->PerformLayout();
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(504, 360);
+			this->Controls->Add(this->btnExit);
+			this->Controls->Add(this->btnBack);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->label14);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->textBox12);
+			this->Controls->Add(this->textBox11);
+			this->Controls->Add(this->textBox10);
+			this->Controls->Add(this->textBox9);
+			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->comboBoxBuscarCedula);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->textBox6);
+			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Name = L"Usuario";
+			this->Text = L"Usuario";
+			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -600,7 +599,7 @@ namespace AppZoo2 {
 
 		// Navigates back to the menu form
 	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
-		AppZoo2::menu^ m = gcnew AppZoo2::menu();
+		AppZoo2::MenuAdmin1^ m = gcnew AppZoo2::MenuAdmin1();
 		m->Show();
 		this->Close();
 	}

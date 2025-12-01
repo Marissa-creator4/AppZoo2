@@ -60,7 +60,7 @@ namespace AppZoo2 {
 			// 
 			// btnBack
 			// 
-			this->btnBack->Location = System::Drawing::Point(12, 12);
+			this->btnBack->Location = System::Drawing::Point(848, 577);
 			this->btnBack->Name = L"btnBack";
 			this->btnBack->Size = System::Drawing::Size(75, 23);
 			this->btnBack->TabIndex = 0;
@@ -70,7 +70,7 @@ namespace AppZoo2 {
 			// 
 			// btnExit
 			// 
-			this->btnExit->Location = System::Drawing::Point(93, 12);
+			this->btnExit->Location = System::Drawing::Point(929, 577);
 			this->btnExit->Name = L"btnExit";
 			this->btnExit->Size = System::Drawing::Size(75, 23);
 			this->btnExit->TabIndex = 1;

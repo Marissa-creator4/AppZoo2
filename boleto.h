@@ -335,7 +335,7 @@ namespace AppZoo2 {
 			// 
 			// btnBack
 			// 
-			this->btnBack->Location = System::Drawing::Point(12, 12);
+			this->btnBack->Location = System::Drawing::Point(166, 368);
 			this->btnBack->Name = L"btnBack";
 			this->btnBack->Size = System::Drawing::Size(75, 23);
 			this->btnBack->TabIndex = 24;
@@ -345,7 +345,7 @@ namespace AppZoo2 {
 			// 
 			// btnExit
 			// 
-			this->btnExit->Location = System::Drawing::Point(93, 12);
+			this->btnExit->Location = System::Drawing::Point(264, 368);
 			this->btnExit->Name = L"btnExit";
 			this->btnExit->Size = System::Drawing::Size(75, 23);
 			this->btnExit->TabIndex = 25;
@@ -359,7 +359,7 @@ namespace AppZoo2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(490, 354);
+			this->ClientSize = System::Drawing::Size(490, 403);
 			this->Controls->Add(this->btnExit);
 			this->Controls->Add(this->btnBack);
 			this->Controls->Add(this->textBoxConfirm);
@@ -371,7 +371,7 @@ namespace AppZoo2 {
 			this->Controls->Add(this->comboBoxNino);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label7);
-		 this->Controls->Add(this->label6);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
