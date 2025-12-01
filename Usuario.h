@@ -1,4 +1,5 @@
 #pragma once
+#include "UserManager.h"
 
 namespace AppZoo2 {
 
@@ -20,15 +21,9 @@ namespace AppZoo2 {
 		Usuario(void)
 		{
 			InitializeComponent();
-			// Inicializar almacenamiento de usuarios y usuario quemado
-			if (users == nullptr) {
-				users = gcnew List<UserRecord^>();
-				// Usuario admin quemado
-				users->Add(gcnew UserRecord("Administrador", "admin@gmail.com", "0000000000", "admin", "admin1234", 22));
-				users->Add(gcnew UserRecord("usuario", "usuario@gmail.com", "1724192832", "usu", "usua1234", 21));
-				users->Add(gcnew UserRecord("Marissa", "Marissa@gmail.com", "1724192859", "mar", "mar12345", 21));
-			}
-			// poblar suggestions en combo
+			// Ensure central user storage
+			AppZoo2::UserManager::EnsureInitialized();
+			// poblar suggestions en combo desde UserManager
 			PopulateCedulaSuggestions();
 		}
 
@@ -79,22 +74,6 @@ namespace AppZoo2 {
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-
-		// User storage
-		ref class UserRecord {
-		public:
-			String^ Nombre;
-			String^ Correo;
-			String^ Cedula;
-			String^ UsuarioName;
-			String^ Contrasena;
-			int Edad;
-			UserRecord(String^ n, String^ c, String^ ced, String^ u, String^ pass, int e) {
-				Nombre = n; Correo = c; Cedula = ced; UsuarioName = u; Contrasena = pass; Edad = e;
-			}
-		};
-
-		static List<UserRecord^>^ users = nullptr;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -256,7 +235,6 @@ namespace AppZoo2 {
 			this->button1->TabIndex = 13;
 			this->button1->Text = L"Agregar";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Usuario::button1_Click);
 			// 
 			// label8
 			// 
@@ -276,6 +254,7 @@ namespace AppZoo2 {
 			this->comboBoxBuscarCedula->Name = L"comboBoxBuscarCedula";
 			this->comboBoxBuscarCedula->Size = System::Drawing::Size(245, 21);
 			this->comboBoxBuscarCedula->TabIndex = 15;
+			this->comboBoxBuscarCedula->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDown;
 			this->comboBoxBuscarCedula->TextChanged += gcnew System::EventHandler(this, &Usuario::comboBoxBuscarCedula_TextChanged);
 			this->comboBoxBuscarCedula->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Usuario::comboBoxBuscarCedula_KeyPress);
 			// 
@@ -330,108 +309,106 @@ namespace AppZoo2 {
 			// 
 			this->label10->AutoSize = true;
 			this->label10->Location = System::Drawing::Point(41, 264);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(38, 13);
-			this->label10->TabIndex = 22;
-			this->label10->Text = L"Correo";
-			// 
+		 this->label10->Name = L"label10";
+		 this->label10->Size = System::Drawing::Size(38, 13);
+		 this->label10->TabIndex = 22;
+		 this->label10->Text = L"Correo";
+		 // 
 			// label11
 			// 
 			this->label11->AutoSize = true;
 			this->label11->Location = System::Drawing::Point(37, 244);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(43, 13);
-			this->label11->TabIndex = 23;
-			this->label11->Text = L"Usuario";
-			// 
+		 this->label11->Name = L"label11";
+		 this->label11->Size = System::Drawing::Size(43, 13);
+		 this->label11->TabIndex = 23;
+		 this->label11->Text = L"Usuario";
+		 // 
 			// label12
 			// 
 			this->label12->AutoSize = true;
 			this->label12->Location = System::Drawing::Point(46, 284);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(32, 13);
-			this->label12->TabIndex = 24;
-			this->label12->Text = L"Edad";
-			// 
+		 this->label12->Name = L"label12";
+		 this->label12->Size = System::Drawing::Size(32, 13);
+		 this->label12->TabIndex = 24;
+		 this->label12->Text = L"Edad";
+		 // 
 			// label13
 			// 
 			this->label13->AutoSize = true;
 			this->label13->Location = System::Drawing::Point(36, 201);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(40, 13);
-			this->label13->TabIndex = 25;
-			this->label13->Text = L"Cédula";
-			// 
+		 this->label13->Name = L"label13";
+		 this->label13->Size = System::Drawing::Size(40, 13);
+		 this->label13->TabIndex = 25;
+		 this->label13->Text = L"Cédula";
+		 // 
 			// label14
 			// 
 			this->label14->AutoSize = true;
 			this->label14->Location = System::Drawing::Point(16, 302);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(61, 13);
-			this->label14->TabIndex = 26;
-			this->label14->Text = L"Contraseña";
-			// 
+		 this->label14->Name = L"label14";
+		 this->label14->Size = System::Drawing::Size(61, 13);
+		 this->label14->TabIndex = 26;
+		 this->label14->Text = L"Contraseña";
+		 // 
 			// button2
 			// 
 			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
 			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->button2->Location = System::Drawing::Point(380, 218);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(40, 35);
-			this->button2->TabIndex = 27;
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &Usuario::button2_Click);
-			// 
+		 this->button2->Name = L"button2";
+		 this->button2->Size = System::Drawing::Size(40, 35);
+		 this->button2->TabIndex = 27;
+		 this->button2->UseVisualStyleBackColor = true;
+		 // 
 			// button3
 			// 
 			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
 			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->button3->Location = System::Drawing::Point(380, 268);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(40, 38);
-			this->button3->TabIndex = 28;
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &Usuario::button3_Click);
-			// 
+		 this->button3->Name = L"button3";
+		 this->button3->Size = System::Drawing::Size(40, 38);
+		 this->button3->TabIndex = 28;
+		 this->button3->UseVisualStyleBackColor = true;
+		 // 
 			// Usuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(504, 360);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->label14);
-			this->Controls->Add(this->label13);
-			this->Controls->Add(this->label12);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->label10);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->textBox12);
-			this->Controls->Add(this->textBox11);
-			this->Controls->Add(this->textBox10);
-			this->Controls->Add(this->textBox9);
-			this->Controls->Add(this->textBox8);
-			this->Controls->Add(this->comboBoxBuscarCedula);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Name = L"Usuario";
-			this->Text = L"Usuario";
-			this->ResumeLayout(false);
-			this->PerformLayout();
+		 this->Controls->Add(this->button3);
+		 this->Controls->Add(this->button2);
+		 this->Controls->Add(this->label14);
+		 this->Controls->Add(this->label13);
+		 this->Controls->Add(this->label12);
+		 this->Controls->Add(this->label11);
+		 this->Controls->Add(this->label10);
+		 this->Controls->Add(this->label9);
+		 this->Controls->Add(this->textBox12);
+		 this->Controls->Add(this->textBox11);
+		 this->Controls->Add(this->textBox10);
+		 this->Controls->Add(this->textBox9);
+		 this->Controls->Add(this->textBox8);
+		 this->Controls->Add(this->comboBoxBuscarCedula);
+		 this->Controls->Add(this->label8);
+		 this->Controls->Add(this->button1);
+		 this->Controls->Add(this->textBox6);
+		 this->Controls->Add(this->textBox5);
+		 this->Controls->Add(this->textBox4);
+		 this->Controls->Add(this->textBox3);
+		 this->Controls->Add(this->textBox2);
+		 this->Controls->Add(this->textBox1);
+		 this->Controls->Add(this->label7);
+		 this->Controls->Add(this->label6);
+		 this->Controls->Add(this->label5);
+		 this->Controls->Add(this->label4);
+		 this->Controls->Add(this->label3);
+		 this->Controls->Add(this->label2);
+		 this->Controls->Add(this->label1);
+		 this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+		 this->Name = L"Usuario";
+		 this->Text = L"Usuario";
+		 this->ResumeLayout(false);
+		 this->PerformLayout();
 
 		}
 #pragma endregion
@@ -446,15 +423,16 @@ namespace AppZoo2 {
 
 		bool ValidateEmail(String^ email, bool showMsg) {
 			if (String::IsNullOrWhiteSpace(email)) { if (showMsg) MessageBox::Show("El correo no puede estar vacío.", "Error"); return false; }
-			// permitir solo dominios @gmail.com o @edu.ec
-			Regex^ rx = gcnew Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.(gmail\\.com|edu\\.ec)$", RegexOptions::IgnoreCase);
-			if (!rx->IsMatch(email)) { if (showMsg) MessageBox::Show("El correo debe terminar en @gmail.com o @edu.ec", "Error"); return false; }
+			// permitir solo dominios @gmail.com o dominio.edu.ec/.est.ec
+			String^ pattern = "^[A-Za-z0-9._%+-]+@(?:gmail\\.com|[A-Za-z0-9.-]+\\.(?:edu|est)\\.ec)$";
+			Regex^ rx = gcnew Regex(pattern, RegexOptions::IgnoreCase);
+			if (!rx->IsMatch(email)) { if (showMsg) MessageBox::Show("El correo debe terminar en @gmail.com o @dominio.edu.ec/.est.ec", "Error"); return false; }
 			return true;
 		}
 
 		bool ValidatePassword(String^ pass, bool showMsg) {
 			if (String::IsNullOrEmpty(pass)) { if (showMsg) MessageBox::Show("La contraseña no puede estar vacía.", "Error"); return false; }
-			if (pass->Length > 8) { if (showMsg) MessageBox::Show("La contraseña no puede tener más de 8 caracteres.", "Error"); return false; }
+			if (pass->Length > 12) { if (showMsg) MessageBox::Show("La contraseña no puede tener más de 12 caracteres.", "Error"); return false; }
 			return true;
 		}
 
@@ -465,16 +443,14 @@ namespace AppZoo2 {
 			return true;
 		}
 
-		UserRecord^ FindByCedula(String^ ced) {
-			for each (UserRecord^ u in users) {
-				if (u->Cedula->Equals(ced)) return u;
-			}
-			return nullptr;
+		AppZoo2::UserManager::UserRecord^ FindByCedula(String^ ced) {
+			return AppZoo2::UserManager::FindByCedula(ced);
 		}
 
 		void PopulateCedulaSuggestions() {
 			this->comboBoxBuscarCedula->Items->Clear();
-			for each (UserRecord^ u in users) this->comboBoxBuscarCedula->Items->Add(u->Cedula);
+			array<String^>^ ceds = AppZoo2::UserManager::GetAllCedulas();
+			for each (String^ s in ceds) this->comboBoxBuscarCedula->Items->Add(s);
 		}
 
 		// Eventos y lógica
@@ -506,13 +482,13 @@ namespace AppZoo2 {
 		if (String::IsNullOrWhiteSpace(nombre)) { MessageBox::Show("Ingrese el nombre.", "Error"); return; }
 		if (!ValidateEmail(correo, true)) return;
 		if (!ValidateCedula(cedula, true)) return;
-		if (FindByCedula(cedula) != nullptr) { MessageBox::Show("Ya existe un usuario con esa cédula.", "Error"); return; }
+		if (AppZoo2::UserManager::FindByCedula(cedula) != nullptr) { MessageBox::Show("Ya existe un usuario con esa cédula.", "Error"); return; }
 		int edad;
 		if (!ValidateEdad(edadStr, edad, true)) return;
 		if (String::IsNullOrWhiteSpace(usuarioName)) { MessageBox::Show("Ingrese el nombre de usuario.", "Error"); return; }
 		if (!ValidatePassword(contrasena, true)) return;
 
-		users->Add(gcnew UserRecord(nombre, correo, cedula, usuarioName, contrasena, edad));
+		AppZoo2::UserManager::Add(nombre, correo, cedula, usuarioName, contrasena, edad);
 		MessageBox::Show("Usuario agregado correctamente.", "OK");
 		// limpiar campos
 		textBox1->Clear(); textBox2->Clear(); textBox3->Clear(); textBox4->Clear(); textBox5->Clear(); textBox6->Clear();
@@ -523,7 +499,7 @@ namespace AppZoo2 {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ cedBus = comboBoxBuscarCedula->Text->Trim();
 		if (!ValidateCedula(cedBus, true)) return;
-		UserRecord^ found = FindByCedula(cedBus);
+		AppZoo2::UserManager::UserRecord^ found = AppZoo2::UserManager::FindByCedula(cedBus);
 		if (found == nullptr) { MessageBox::Show("Usuario no encontrado.", "Info"); return; }
 		// tomar valores de campos de resultado y validar
 		String^ nombre = textBox8->Text->Trim();
@@ -538,12 +514,8 @@ namespace AppZoo2 {
 		if (!ValidatePassword(contrasena, true)) return;
 		if (String::IsNullOrWhiteSpace(usuarioName)) { MessageBox::Show("Ingrese el nombre de usuario.", "Error"); return; }
 
-		// actualizar
-		found->Nombre = nombre;
-		found->UsuarioName = usuarioName;
-		found->Correo = correo;
-		found->Edad = edad;
-		found->Contrasena = contrasena;
+		AppZoo2::UserManager::UserRecord^ rec = gcnew AppZoo2::UserManager::UserRecord(nombre, correo, cedBus, usuarioName, contrasena, edad);
+		AppZoo2::UserManager::Update(rec);
 		MessageBox::Show("Usuario editado correctamente.", "OK");
 		PopulateCedulaSuggestions();
 	}
@@ -552,11 +524,11 @@ namespace AppZoo2 {
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ cedBus = comboBoxBuscarCedula->Text->Trim();
 		if (!ValidateCedula(cedBus, true)) return;
-		UserRecord^ found = FindByCedula(cedBus);
+		AppZoo2::UserManager::UserRecord^ found = AppZoo2::UserManager::FindByCedula(cedBus);
 		if (found == nullptr) { MessageBox::Show("Usuario no encontrado.", "Info"); return; }
 		// evitar eliminar admin
 		if (found->UsuarioName->Equals("admin")) { MessageBox::Show("No se puede eliminar el usuario administrador.", "Error"); return; }
-		users->Remove(found);
+		AppZoo2::UserManager::RemoveByCedula(cedBus);
 		MessageBox::Show("Usuario eliminado.", "OK");
 		// limpiar campos resultado
 		comboBoxBuscarCedula->Text = ""; textBox8->Clear(); textBox12->Clear(); textBox11->Clear(); textBox10->Clear(); textBox9->Clear();
@@ -568,7 +540,7 @@ namespace AppZoo2 {
 		String^ cedBus = comboBoxBuscarCedula->Text->Trim();
 		if (cedBus->Length == 0) return;
 		if (!ValidateCedula(cedBus, false)) return;
-		UserRecord^ found = FindByCedula(cedBus);
+		AppZoo2::UserManager::UserRecord^ found = AppZoo2::UserManager::FindByCedula(cedBus);
 		if (found != nullptr) {
 			textBox8->Text = found->Nombre;
 			textBox12->Text = found->UsuarioName;

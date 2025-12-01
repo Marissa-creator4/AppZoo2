@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Usuario.h"
+// removed include of Usuario.h to avoid circular dependency
 
 namespace AppZoo2 {
 

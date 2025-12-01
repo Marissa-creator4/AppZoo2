@@ -19,15 +19,13 @@ namespace AppZoo2 {
 		boleto(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			// set defaults
+			this->comboBoxNino->SelectedIndex = 0;
+			this->comboBoxAdulto->SelectedIndex = 0;
+			this->comboBoxAdultoMayor->SelectedIndex = 0;
 		}
 
 	protected:
-		/// <summary>
-		/// Limpiar los recursos que se estén usando.
-		/// </summary>
 		~boleto()
 		{
 			if (components)
@@ -37,14 +35,12 @@ namespace AppZoo2 {
 		}
 
 
-
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-
 
 
 	private: System::Windows::Forms::Label^ label4;
@@ -59,19 +55,16 @@ namespace AppZoo2 {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::TextBox^ textBoxConfirm; // new confirmation textbox
 	protected:
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del dise?ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(boleto::typeid));
@@ -92,6 +85,7 @@ namespace AppZoo2 {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->textBoxConfirm = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -238,6 +232,7 @@ namespace AppZoo2 {
 			this->button1->TabIndex = 16;
 			this->button1->Text = L"Comprar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &boleto::button1_Click);
 			// 
 			// comboBoxNino
 			// 
@@ -324,6 +319,15 @@ namespace AppZoo2 {
 			this->label10->Text = L"$3";
 			this->label10->Click += gcnew System::EventHandler(this, &boleto::label10_Click);
 			// 
+			// textBoxConfirm
+			// 
+			this->textBoxConfirm->Location = System::Drawing::Point(61, 330);
+			this->textBoxConfirm->Name = L"textBoxConfirm";
+			this->textBoxConfirm->ReadOnly = true;
+			this->textBoxConfirm->Size = System::Drawing::Size(350, 20);
+			this->textBoxConfirm->TabIndex = 23;
+			this->textBoxConfirm->Visible = false;
+			// 
 			// boleto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -331,6 +335,7 @@ namespace AppZoo2 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(490, 354);
+			this->Controls->Add(this->textBoxConfirm);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
@@ -356,9 +361,9 @@ namespace AppZoo2 {
 
 		}
 #pragma endregion
-		private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-		}
-		// Handlers for combo box selection changes
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	// Handlers for combo box selection changes
 	private: System::Void comboBoxNino_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (this->comboBoxNino->SelectedItem != nullptr) {
 			int valor = Convert::ToInt32(this->comboBoxNino->SelectedItem->ToString());
@@ -385,7 +390,7 @@ namespace AppZoo2 {
 		}
 	}
 
-		// Validación del correo
+		// Validaci?n del correo
 	private: System::Void textBox3_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
 		String^ correo = this->textBox3->Text->Trim();
 
@@ -399,7 +404,7 @@ namespace AppZoo2 {
 			return;
 		}
 
-		String^ pattern = "^[A-Za-z0-9._%+-]+@(gmail\\.com|([A-Za-z0-9-]+\\.)*[A-Za-z0-9-]+\\.edu\\.ec)$";
+		String^ pattern = "^[A-Za-z0-9._%+-]+@(?:gmail\\.com|[A-Za-z0-9-]+\\.(?:edu|est)\\.ec)$";
 		Regex^ rx = gcnew Regex(pattern, RegexOptions::IgnoreCase);
 		bool isMatch = rx->IsMatch(correo);
 
@@ -426,6 +431,19 @@ namespace AppZoo2 {
 	}
 
 	private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	// Comprar button -> show purchase summary in textBoxConfirm
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		int nNino = Convert::ToInt32(this->comboBoxNino->SelectedItem->ToString());
+		int nAdulto = Convert::ToInt32(this->comboBoxAdulto->SelectedItem->ToString());
+		int nAdultoMayor = Convert::ToInt32(this->comboBoxAdultoMayor->SelectedItem->ToString());
+
+		int total = nNino * 5 + nAdulto * 10 + nAdultoMayor * 3;
+		String^ msg = String::Format("Compra exitosa. Niños: {0}, Adultos: {1}, Adultos Mayores: {2}. Total: ${3}", nNino, nAdulto, nAdultoMayor, total);
+		this->textBoxConfirm->Text = msg;
+		this->textBoxConfirm->Visible = true;
+		MessageBox::Show(msg, "Compra", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 };
 }
